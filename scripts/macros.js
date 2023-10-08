@@ -1,11 +1,24 @@
-console.log("Hello World! This code runs immediately when the file is loaded.");
-
-Hooks.on("init", function () {
-    console.log(
-        "This code runs once the Foundry VTT software begins its initialization workflow."
-    );
-});
-
 Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
-    console.log(data);
+    var day = data.date.weekdays[data.date.day];
+    if (day == "sunday" || day == "saturday") {
+        if (data.date.hour > 8 && data.date.hour < 20) {
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
+            );
+        } else {
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
+            );
+        }
+    }
 });
