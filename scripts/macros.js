@@ -9,54 +9,48 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: false });
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds ==
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.CLOSED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds ==
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.CLOSED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
+            );
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: true });
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds !=
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.LOCKED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds !=
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.LOCKED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
+            );
         }
     } else {
         if (data.date.hour >= 6 && data.date.hour < 22) {
@@ -69,54 +63,48 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
                 NewmanTillmanToken.update({ hidden: false });
                 StevieChairmanToken.update({ hidden: true });
             }
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds ==
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.CLOSED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds ==
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.CLOSED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
+            );
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: true });
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds !=
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.LOCKED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds !=
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.LOCKED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
+            );
         }
     }
 });
@@ -138,54 +126,48 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: false });
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds ==
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.CLOSED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds ==
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.CLOSED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
+            );
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: true });
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds !=
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.LOCKED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds !=
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.LOCKED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
+            );
         }
     } else {
         if (hour >= 6 && hour < 22) {
@@ -198,51 +180,45 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
                 NewmanTillmanToken.update({ hidden: false });
                 StevieChairmanToken.update({ hidden: true });
             }
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds ==
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.CLOSED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds ==
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.CLOSED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
+            );
         } else {
-            if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
-                if (
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds !=
-                    CONST.WALL_DOOR_STATES.LOCKED
-                ) {
-                    game.scenes
-                        .get("oD4KXsJFDJTGD8zf")
-                        .walls.get("XdP9vdnhunLwxOSb").ds =
-                        CONST.WALL_DOOR_STATES.LOCKED;
-                }
-            } else {
-                canvas.walls.updateAll(
-                    (d) => ({
-                        ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                    }),
-                    (d) =>
-                        d.id == "XdP9vdnhunLwxOSb" &&
-                        d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-                );
+            if (
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds !=
+                CONST.WALL_DOOR_STATES.LOCKED
+            ) {
+                game.scenes
+                    .get("oD4KXsJFDJTGD8zf")
+                    .walls.get("XdP9vdnhunLwxOSb").ds =
+                    CONST.WALL_DOOR_STATES.LOCKED;
             }
+            canvas.walls.updateAll(
+                (d) => ({
+                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
+                }),
+                (d) =>
+                    d.id == "XdP9vdnhunLwxOSb" &&
+                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
+            );
         }
     }
 });
