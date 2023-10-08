@@ -1,6 +1,6 @@
 Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
     var day = data.date.weekdays[data.date.day];
-    if (day == "sunday" || day == "saturday") {
+    if (day == "Sunday" || day == "Saturday") {
         if (data.date.hour > 8 && data.date.hour < 20) {
             canvas.walls.updateAll(
                 (d) => ({
