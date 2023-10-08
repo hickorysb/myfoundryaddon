@@ -6,9 +6,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
     var day = data.date.weekdays[data.date.dayOfTheWeek];
     if (day == "Sunday" || day == "Saturday") {
         if (data.date.hour >= 8 && data.date.hour < 20) {
-            CharlieFillerToken.hidden = true;
-            NewmanTillmanToken.hidden = true;
-            StevieChairmanToken.hidden = false;
+            CharlieFillerToken.update({ hidden: true });
+            NewmanTillmanToken.update({ hidden: true });
+            StevieChairmanToken.update({ hidden: false });
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
                     game.scenes
@@ -32,9 +32,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
                 );
             }
         } else {
-            CharlieFillerToken.hidden = true;
-            NewmanTillmanToken.hidden = true;
-            StevieChairmanToken.hidden = true;
+            CharlieFillerToken.update({ hidden: true });
+            NewmanTillmanToken.update({ hidden: true });
+            StevieChairmanToken.update({ hidden: true });
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
                     game.scenes
@@ -61,13 +61,13 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
     } else {
         if (data.date.hour >= 6 && data.date.hour < 22) {
             if (data.date.hour >= 6 && data.date.hour < 14) {
-                CharlieFillerToken.hidden = false;
-                NewmanTillmanToken.hidden = true;
-                StevieChairmanToken.hidden = true;
+                CharlieFillerToken.update({ hidden: false });
+                NewmanTillmanToken.update({ hidden: true });
+                StevieChairmanToken.update({ hidden: true });
             } else {
-                CharlieFillerToken.hidden = true;
-                NewmanTillmanToken.hidden = false;
-                StevieChairmanToken.hidden = true;
+                CharlieFillerToken.update({ hidden: true });
+                NewmanTillmanToken.update({ hidden: false });
+                StevieChairmanToken.update({ hidden: true });
             }
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
@@ -92,9 +92,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
                 );
             }
         } else {
-            CharlieFillerToken.hidden = true;
-            NewmanTillmanToken.hidden = true;
-            StevieChairmanToken.hidden = true;
+            CharlieFillerToken.update({ hidden: true });
+            NewmanTillmanToken.update({ hidden: true });
+            StevieChairmanToken.update({ hidden: true });
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
                     game.scenes
@@ -135,9 +135,9 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
     var hour = SimpleCalendar.api.currentDateTime().hours;
     if (day == "Sunday" || day == "Saturday") {
         if (hour >= 8 && hour < 20) {
-            CharlieFillerToken.hidden = true;
-            NewmanTillmanToken.hidden = true;
-            StevieChairmanToken.hidden = false;
+            CharlieFillerToken.update({ hidden: true });
+            NewmanTillmanToken.update({ hidden: true });
+            StevieChairmanToken.update({ hidden: false });
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
                     game.scenes
@@ -161,9 +161,9 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
                 );
             }
         } else {
-            CharlieFillerToken.hidden = true;
-            NewmanTillmanToken.hidden = true;
-            StevieChairmanToken.hidden = true;
+            CharlieFillerToken.update({ hidden: true });
+            NewmanTillmanToken.update({ hidden: true });
+            StevieChairmanToken.update({ hidden: true });
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
                     game.scenes
@@ -190,13 +190,13 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
     } else {
         if (hour >= 6 && hour < 22) {
             if (hour >= 6 && hour < 14) {
-                CharlieFillerToken.hidden = false;
-                NewmanTillmanToken.hidden = true;
-                StevieChairmanToken.hidden = true;
+                CharlieFillerToken.update({ hidden: false });
+                NewmanTillmanToken.update({ hidden: true });
+                StevieChairmanToken.update({ hidden: true });
             } else {
-                CharlieFillerToken.hidden = true;
-                NewmanTillmanToken.hidden = false;
-                StevieChairmanToken.hidden = true;
+                CharlieFillerToken.update({ hidden: true });
+                NewmanTillmanToken.update({ hidden: false });
+                StevieChairmanToken.update({ hidden: true });
             }
             if (!game.scenes.get("oD4KXsJFDJTGD8zf").isView) {
                 if (
