@@ -2,77 +2,76 @@ var CharlieFillerToken = null;
 var NewmanTillmanToken = null;
 var StevieChairmanToken = null;
 
-Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
-    var day = data.date.weekdays[data.date.dayOfTheWeek];
+function setDoorLocked(scene, door) {
+    if (
+        game.scenes.get(scene).walls.get(door).ds !=
+        CONST.WALL_DOOR_STATES.LOCKED
+    ) {
+        game.scenes
+            .get(scene)
+            .walls.get(door)
+            .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
+    }
+}
+
+function setGroceryStaffVisibility(day, hour) {
     if (day == "Sunday" || day == "Saturday") {
-        if (data.date.hour >= 8 && data.date.hour < 20) {
+        if (hour >= 8 && hour < 20) {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: false });
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds ==
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
-            }
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: true });
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds !=
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
-            }
         }
     } else {
-        if (data.date.hour >= 6 && data.date.hour < 22) {
-            if (data.date.hour >= 6 && data.date.hour < 14) {
-                CharlieFillerToken.update({ hidden: false });
-                NewmanTillmanToken.update({ hidden: true });
-                StevieChairmanToken.update({ hidden: true });
-            } else {
-                CharlieFillerToken.update({ hidden: true });
-                NewmanTillmanToken.update({ hidden: false });
-                StevieChairmanToken.update({ hidden: true });
-            }
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds ==
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
-            }
+        if (hour >= 6 && hour < 14) {
+            CharlieFillerToken.update({ hidden: false });
+            NewmanTillmanToken.update({ hidden: true });
+            StevieChairmanToken.update({ hidden: true });
+        } else if (hour >= 14 && hour < 22) {
+            CharlieFillerToken.update({ hidden: true });
+            NewmanTillmanToken.update({ hidden: false });
+            StevieChairmanToken.update({ hidden: true });
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
             StevieChairmanToken.update({ hidden: true });
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds !=
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
-            }
+        }
+    }
+}
+
+function setDoorUnlocked(scene, door) {
+    if (
+        game.scenes.get(scene).walls.get(door).ds ==
+        CONST.WALL_DOOR_STATES.LOCKED
+    ) {
+        game.scenes
+            .get(scene)
+            .walls.get(door)
+            .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
+    }
+}
+
+Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
+    var day = data.date.weekdays[data.date.dayOfTheWeek];
+    var hour = data.date.hour;
+    if (day == "Sunday" || day == "Saturday") {
+        if (hour >= 8 && hour < 20) {
+            setGroceryStaffVisibility(day, hour);
+            setDoorUnlocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
+        } else {
+            setGroceryStaffVisibility(day, hour);
+            setDoorLocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
+        }
+    } else {
+        if (hour >= 6 && hour < 22) {
+            setGroceryStaffVisibility(day, hour);
+            setDoorUnlocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
+        } else {
+            setGroceryStaffVisibility(day, hour);
+            setDoorLocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
         }
     }
 });
@@ -91,70 +90,19 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
     var hour = SimpleCalendar.api.currentDateTime().hours;
     if (day == "Sunday" || day == "Saturday") {
         if (hour >= 8 && hour < 20) {
-            CharlieFillerToken.update({ hidden: true });
-            NewmanTillmanToken.update({ hidden: true });
-            StevieChairmanToken.update({ hidden: false });
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds ==
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
-            }
+            setGroceryStaffVisibility(day, hour);
+            setDoorUnlocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
         } else {
-            CharlieFillerToken.update({ hidden: true });
-            NewmanTillmanToken.update({ hidden: true });
-            StevieChairmanToken.update({ hidden: true });
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds !=
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
-            }
+            setGroceryStaffVisibility(day, hour);
+            setDoorLocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
         }
     } else {
         if (hour >= 6 && hour < 22) {
-            if (hour >= 6 && hour < 14) {
-                CharlieFillerToken.update({ hidden: false });
-                NewmanTillmanToken.update({ hidden: true });
-                StevieChairmanToken.update({ hidden: true });
-            } else {
-                CharlieFillerToken.update({ hidden: true });
-                NewmanTillmanToken.update({ hidden: false });
-                StevieChairmanToken.update({ hidden: true });
-            }
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds ==
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
-            }
+            setGroceryStaffVisibility(day, hour);
+            setDoorUnlocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
         } else {
-            if (
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds !=
-                CONST.WALL_DOOR_STATES.LOCKED
-            ) {
-                game.scenes
-                    .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb")
-                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
-            }
+            setGroceryStaffVisibility(day, hour);
+            setDoorLocked("oD4KXsJFDJTGD8zf", "XdP9vdnhunLwxOSb");
         }
     }
 });
