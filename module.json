@@ -2,7 +2,7 @@
     "id": "abney-time-based-macros",
     "title": "Time Based Macros",
     "description": "Runs macros by me at specific times on specific days.",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "esmodules": ["./scripts/macros.js"],
     "download": "https://github.com/hickorysb/myfoundryaddon/releases/download/1.0.4/Foundry.Time.Based.Macro.zip",
     "manifest": "https://github.com/hickorysb/myfoundryaddon/raw/master/module.json",
