@@ -1,3 +1,3 @@
-Hook.on("simple-calendar-date-time-change", (data) => {
+Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
     console.log(data);
 });

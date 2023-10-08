@@ -4,6 +4,10 @@
     "description": "Runs macros by me at specific times on specific days.",
     "version": "1.0.0",
     "scripts": ["scripts/macros.js"],
-    "download": "https://github.com/hickorysb/myfoundryaddon/releases/download/1.0.1/Foundry.Time.Based.Macro.zip",
-    "manifest": "https://github.com/hickorysb/myfoundryaddon/blob/master/module.json"
+    "download": "https://github.com/hickorysb/myfoundryaddon/releases/download/1.0.2/Foundry.Time.Based.Macro.zip",
+    "manifest": "https://github.com/hickorysb/myfoundryaddon/blob/master/module.json",
+    "compatibility": {
+        "minimum": "10",
+        "verified": "11"
+    }
 }
