@@ -17,17 +17,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.CLOSED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-            );
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
@@ -40,17 +32,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.LOCKED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-            );
         }
     } else {
         if (data.date.hour >= 6 && data.date.hour < 22) {
@@ -71,17 +55,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.CLOSED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-            );
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
@@ -94,17 +70,9 @@ Hooks.on(SimpleCalendar.Hooks.DateTimeChange, (data) => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.LOCKED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-            );
         }
     }
 });
@@ -134,17 +102,9 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.CLOSED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-            );
         } else {
             CharlieFillerToken.update({ hidden: true });
             NewmanTillmanToken.update({ hidden: true });
@@ -157,17 +117,9 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.LOCKED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-            );
         }
     } else {
         if (hour >= 6 && hour < 22) {
@@ -188,17 +140,9 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.CLOSED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.CLOSED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.CLOSED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds == CONST.WALL_DOOR_STATES.LOCKED
-            );
         } else {
             if (
                 game.scenes
@@ -208,17 +152,9 @@ Hooks.on(SimpleCalendar.Hooks.Ready, () => {
             ) {
                 game.scenes
                     .get("oD4KXsJFDJTGD8zf")
-                    .walls.get("XdP9vdnhunLwxOSb").ds =
-                    CONST.WALL_DOOR_STATES.LOCKED;
+                    .walls.get("XdP9vdnhunLwxOSb")
+                    .update({ ds: CONST.WALL_DOOR_STATES.LOCKED });
             }
-            canvas.walls.updateAll(
-                (d) => ({
-                    ds: (d.document.ds = CONST.WALL_DOOR_STATES.LOCKED),
-                }),
-                (d) =>
-                    d.id == "XdP9vdnhunLwxOSb" &&
-                    d.document.ds != CONST.WALL_DOOR_STATES.LOCKED
-            );
         }
     }
 });
